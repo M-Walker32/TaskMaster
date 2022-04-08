@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="icon" href="https://bcw.blob.core.windows.net/public/img/9977764104160066">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+  <link rel="stylesheet" href="assets/style/main.css">
+  <link rel="stylesheet" href="assets/style/style.css">
+  <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/@mdi/font@5.9.55/css/materialdesignicons.min.css'>
+  <title>TaskMaster</title>
+</head>
+
+<body>
+  <header class="container-fluid bg-dark text-light p-4">
+    <form class="row gx-3 gy-2 d-flex align-items-center" onsubmit="app.notesController.addNote()">
+      <span class="ms-2 col-sm-2">TaskMaster</span>
+      <div class="col-sm-3">
+        <label class="visually-hidden" for="name">name</label>
+        <input type="text" class="form-control" id="name" placeholder="Name" minlength="3" maxlength="15" required>
+      </div>
+      <div class="col-sm-3">
+        <label class="visually-hidden" for="color">Color</label>
+        <select class="form-select" id="color" required>
+          <option selected disabled>Color...</option>
+          <option value="mustard">mustard</option>
+          <option value="forest">forest</option>
+          <option value="peachy">peachy</option>
+          <option value="teal">teal</option>
+          <option value="sage">sage</option>
+        </select>
+      </div>
+      <div class="col-sm-1">
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </div>
+    </form>
+  </header>
+
+  <main>
+    <div class="container-fluid">
+      <div class="row" id="note">
+        <!-- <div class="col-4">
+          <div class="card m-3">
+            <h5 class="card-header">Title of Note</h5>
+            <div class="card-body">
+              <p class="card-text">
+              <div class="task d-flex">
+                <input type="checkbox" checked="unchecked">
+                <span class="checkmark"></span>
+                <p>Task at hand.</p>
+              </div>
+              <div class="task d-flex">
+                <input type="checkbox" checked="unchecked">
+                <span class="checkmark"></span>
+                <p>Task at hand.</p>
+              </div>
+              </p>
+            </div>
+          </div>
+        </div> -->
+      </div>
+    </div>
+  </main>
+
+  <footer class="bg-dark text-light">
+    <div class="text-center no-select">
+      <i class="mdi mdi-account-cowboy-hat"></i>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.3.10/dist/sweetalert2.all.min.js"
+    integrity="sha256-hw7v8jZF/rFEdx1ZHepT4D73AFTHLu/P9kEyrNesRyc=" crossorigin="anonymous"></script>
+  <script src="app/main.js" type="module"></script>
+</body>
+
+</html>

@@ -1,0 +1,24 @@
+/* BASIC STYLES HERE */
+:root{
+  --mustard: #c68404;
+  --forest: #3c4421;
+  --teal: #074b4d;
+  --peachy: #c6643a;
+  --sage: #858a7d;
+}
+
+.bg-mustard{
+  background-color: var(--mustard);
+}
+.bg-forest{
+  background-color: var(--forest);
+}
+.bg-teal{
+  background-color: var(--teal);
+}
+.bg-peachy{
+  background-color: var(--peachy);
+}
+.bg-sage{
+  background-color: var(--sage);
+}
