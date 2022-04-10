@@ -3,39 +3,19 @@ import { isValidProp } from "./Utils/isValidProp.js"
 import { Note } from "./Models/Note.js"
 import { Task } from "./Models/Task.js"
 
+// let note1 = new Note({ name: 'this is one', color: "forest" })
+// let note2 = new Note({ name: 'this is two', color: "peachy" })
+// let note3 = new Note({ name: 'this is three', color: "sage" })
+
+// let task1 = new Task({ name: "task at hand", noteId: note1.id })
+// let task2 = new Task({ name: "task at hand2", noteId: note2.id })
+// let task3 = new Task({ name: "task at hand3", noteId: note3.id })
+
 class AppState extends EventEmitter {
   /** @type {import('./Models/Note').Note[]} */
-  notes = [
-    new Note({
-      name: 'Groceries',
-      color: "forest"
-    }),
-    new Note({
-      name: 'Groceries',
-      color: "mustard"
-    }),
-    new Note({
-      name: 'Groceries',
-      color: "peachy"
-    }),
-  ]
+  notes = []
   /** @type {import('./Models/Task').Task[]} */
-  tasks = [
-    new Task({
-      name: 'Eat a sandwhich',
-      noteId: ""
-    }),
-    new Task({
-      name: 'Eat a sandwhich',
-      noteId: ""
-    }),
-    new Task({
-      name: 'Eat a sandwhich',
-      noteId: ""
-    }),
-
-  ]
-
+  tasks = []
 }
 
 export const ProxyState = new Proxy(new AppState(), {

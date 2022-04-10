@@ -6,16 +6,16 @@ export class Task {
     this.id = generateId()
     this.name = data.name
     this.noteId = data.noteId
-    // how do you connect the note ID to the note?? is it magic??????
   }
 
   get TaskTemplate() {
     return /*html*/`
-    <div class="task d-flex">
-                <input type="checkbox">
-                <span class="checkmark"></span>
-                <p>${this.name}</p>
-              </div>
+    <div class="tasks d-flex">
+      <input type="checkbox">
+      <span class="checkmark"></span>
+      <p>${this.name}</p>
+      <i class="mdi mdi-trash-can selectable" onclick="app.tasksController.removeTask('${this.id}')"></i>
+     </div>
     `
   }
 }

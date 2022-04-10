@@ -16,37 +16,37 @@ function _drawTasks() {
 //Public
 export class TasksController {
   constructor() {
-    ProxyState.on("tasks", _drawTasks);
-    // ProxyState.on("notes", _drawNotes);
-    // ProxyState.on('tasks', saveState) -- this for local storage
-    _drawTasks()
+    // ProxyState.on("tasks", _drawTasks);
+    //   // ProxyState.on("notes", _drawNotes);
+    //   // ProxyState.on('tasks', saveState) -- this for local storage
+    // _drawTasks()
   }
 
-  addTask(id) {
+  addTask(noteId) {
+    // console.log(noteId)
+    window.event.preventDefault()
     try {
       // debugger
       event.preventDefault()
-      const formElem = event.target
+      const form = event.target
       const taskFormData = {
         // @ts-ignore
-        name: formElem.newtask.value,
-        noteId: id
-        // @ts-ignore
+        name: form.newtask.value,
+        noteId
       }
-      // @ts-ignore
       tasksService.addTask(taskFormData)
       // @ts-ignore
-      formElem.reset()
+      // form.reset()
     }
     catch {
       console.log('error')
     }
   }
 
-  // async removeNote(id) {
-  //   const yes = await Pop.confirm('Remove Note')
-  //   if (yes) {
-  //     notesService.removeNote(id)
-  //   }
-  // }
+  async removeTask(id) {
+    const yes = await Pop.confirm('Remove Task')
+    if (yes) {
+      tasksService.removeTask(id)
+    }
+  }
 }

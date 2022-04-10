@@ -1,25 +1,32 @@
 import { generateId } from "../Utils/generateId.js"
 import { ProxyState } from "../AppState.js"
+import { Task } from "./Task.js"
 
 export class Note {
   constructor(data) {
-    this.id = generateId()
+    this.id = data.id || generateId()
     this.name = data.name
     this.color = data.color
   }
 
+  get Tasks() {
+    let tasks = ProxyState.tasks.filter(t => t.noteId == this.id)
+    let template = ''
+    tasks.forEach(t => template += t.TaskTemplate)
+    return template
+  }
+
   get NoteTemplate() {
+    let taskcount = ProxyState.tasks.filter(t => t.noteId == this.id)
     return /*html*/`
     <div class="col-4">
     <div class="card m-3">
       <h5 class="card-header text-light bg-${this.color}">${this.name}
-      <span>0/0</span>
+      <span>  0/ ${taskcount.length}</span>
       <i class="mdi mdi-trash-can selectable" onclick="app.notesController.removeNote('${this.id}')"></i>
       </h5>
       <div class="card-body">
         <p class="card-text text-wrap" id="task">
-        // tasks go here<br>
-        // tasks go here<br>
         </p>
       </div>
       <form onsubmit="app.tasksController.addTask('${this.id}')">

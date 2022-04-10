@@ -16,11 +16,12 @@ function _drawNotes() {
 export class NotesController {
   constructor() {
     ProxyState.on("notes", _drawNotes);
-    // ProxyState.on("tasks", _drawTasks);
+    ProxyState.on("tasks", _drawNotes);
     _drawNotes()
   }
 
-  addNote() {
+  addNote(name) {
+    // debugger
     window.event.preventDefault()
     try {
       const form = window.event.target
@@ -33,10 +34,10 @@ export class NotesController {
       // @ts-ignore
       notesService.addNote(noteFormData)
       // @ts-ignore
-      formElem.reset()
+      form.reset()
     }
     catch {
-      console.log('error')
+      alert('Your note title must be between 3-15 charcters, and you must select a color.')
     }
   }
 

@@ -16,15 +16,16 @@
 
 <body>
   <header class="container-fluid bg-dark text-light p-4">
-    <form class="row gx-3 gy-2 d-flex align-items-center" onsubmit="app.notesController.addNote()">
+    <form class="row gx-3 gy-2 d-flex align-items-center" onsubmit="app.notesController.addNote('${data.name}')">
       <span class="ms-2 col-sm-2">TaskMaster</span>
       <div class="col-sm-3">
         <label class="visually-hidden" for="name">name</label>
-        <input type="text" class="form-control" id="name" placeholder="Name" minlength="3" maxlength="15" required>
+        <input type="text" class="form-control" name="name" id="name" placeholder="Name" minlength="3" maxlength="15"
+          required>
       </div>
       <div class="col-sm-3">
         <label class="visually-hidden" for="color">Color</label>
-        <select class="form-select" id="color" required>
+        <select class="form-select" name="color" id="color" required>
           <option selected disabled>Color...</option>
           <option value="mustard">mustard</option>
           <option value="forest">forest</option>

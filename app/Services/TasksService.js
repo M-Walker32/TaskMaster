@@ -6,10 +6,10 @@ class TasksService {
     const task = new Task(taskFormData)
     ProxyState.tasks = [...ProxyState.tasks, task]
   }
-  // removeNote(id) {
-  //   const notes = ProxyState.notes.filter(n => n.id !== id)
-  //   ProxyState.notes = notes
-  // }
+  removeTask(id) {
+    const tasks = ProxyState.tasks.filter(t => t.id !== id)
+    ProxyState.tasks = tasks
+  }
 }
 
 export const tasksService = new TasksService();
