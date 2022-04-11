@@ -23,6 +23,7 @@ export class TasksController {
         // @ts-ignore
         name: form.newtask.value,
         // @ts-ignore
+        completed,
         noteId
       }
       tasksService.addTask(taskFormData)

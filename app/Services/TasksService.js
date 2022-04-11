@@ -5,7 +5,9 @@ import { saveState, loadState } from "../Utils/LocalStorage.js";
 class TasksService {
 
   markComplete(id) {
+    // debugger
     let foundTask = ProxyState.tasks.find(t => t.id == id)
+    console.log(foundTask)
     if (foundTask.completed) {
       foundTask.completed = false
     } else {
