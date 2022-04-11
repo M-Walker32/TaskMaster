@@ -10,14 +10,6 @@ class NotesService {
     const notes = ProxyState.notes.filter(n => n.id !== id)
     ProxyState.notes = notes
   }
-
-  addCheck(num, id) {
-    const notes = ProxyState.notes.filter(n => n.id !== id)
-    const checked = ProxyState.notes.push(num += 1)
-    ProxyState.notes = notes
-    // let checked = 0
-    // checked += 1
-  }
 }
 
 export const notesService = new NotesService();

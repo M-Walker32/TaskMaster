@@ -31,8 +31,6 @@ export class NotesController {
     ProxyState.on("tasks", _drawNotes)
     ProxyState.on('notes', saveState)
     ProxyState.on('tasks', saveState)
-
-
     loadState()
     _drawNotes()
   }

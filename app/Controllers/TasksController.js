@@ -8,11 +8,9 @@ import { Pop } from "../Utils/Pop.js";
 //Public
 export class TasksController {
 
-  // save(id) {
-  //   // let checked = id
-    
-  //   loadState()
-  // }
+markComplete(id){
+  tasksService.markComplete(id)
+}
 
   addTask(noteId) {
     // console.log(noteId)
