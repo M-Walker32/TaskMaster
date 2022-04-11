@@ -8,16 +8,13 @@ class TasksService {
     let foundTask = ProxyState.tasks.find(t => t.id == id)
     if (foundTask.completed) {
       foundTask.completed = false
-      saveState()
     } else {
       foundTask.completed = true
-      saveState()
     }
     console.log(foundTask)
     ProxyState.tasks = ProxyState.tasks
-    ProxyState.on('tasks', saveState)
-    saveState()
-    // Save state is not working............
+    // ProxyState.on('tasks', saveState)
+    // saveState()
   }
 
   addTask(taskFormData) {
