@@ -1,26 +1,18 @@
 import { ProxyState } from "../AppState.js";
+import { Task } from "../Models/Task.js";
 // import { Task } from "../Models/Task.js";
 import { tasksService } from "../Services/TasksService.js";
-// import {loadState, saveState} "../Utils/WHAT_GOES_HERE" 
+import { loadState, saveState } from "../Utils/LocalStorage.js"
 import { Pop } from "../Utils/Pop.js";
-
-
-//Private
-function _drawTasks() {
-  let tasks = ProxyState.tasks
-  let tasksTemplate = ''
-  tasks.forEach(t => tasksTemplate += t.TaskTemplate)
-  document.getElementById("task").innerHTML = tasksTemplate
-}
 
 //Public
 export class TasksController {
-  constructor() {
-    // ProxyState.on("tasks", _drawTasks);
-    //   // ProxyState.on("notes", _drawNotes);
-    //   // ProxyState.on('tasks', saveState) -- this for local storage
-    // _drawTasks()
-  }
+
+  // save(id) {
+  //   // let checked = id
+    
+  //   loadState()
+  // }
 
   addTask(noteId) {
     // console.log(noteId)
@@ -28,10 +20,11 @@ export class TasksController {
     try {
       // debugger
       event.preventDefault()
-      const form = event.target
+      const form = window.event.target
       const taskFormData = {
         // @ts-ignore
         name: form.newtask.value,
+        // @ts-ignore
         noteId
       }
       tasksService.addTask(taskFormData)
@@ -44,7 +37,7 @@ export class TasksController {
   }
 
   async removeTask(id) {
-    const yes = await Pop.confirm('Remove Task')
+    const yes = await Pop.confirm('Remove Task?')
     if (yes) {
       tasksService.removeTask(id)
     }

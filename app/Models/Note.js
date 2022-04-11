@@ -7,6 +7,7 @@ export class Note {
     this.id = data.id || generateId()
     this.name = data.name
     this.color = data.color
+    this.completed = 0
   }
 
   get Tasks() {
@@ -16,17 +17,28 @@ export class Note {
     return template
   }
 
+  get taskCount() {
+    let totaltasks = ProxyState.tasks.filter(t => t.noteId == this.id).length
+    console.log('Total:', totaltasks)
+    return totaltasks
+  }
+  get checked() {
+    let checked = document.querySelectorAll('input[checked]').length
+    console.log('checked', checked)
+    return checked
+  }
+
   get NoteTemplate() {
-    let taskcount = ProxyState.tasks.filter(t => t.noteId == this.id)
     return /*html*/`
     <div class="col-4">
     <div class="card m-3">
       <h5 class="card-header text-light bg-${this.color}">${this.name}
-      <span>  0/ ${taskcount.length}</span>
+      <span id="checkCount"> ${this.checked} / ${this.taskCount}</span>
       <i class="mdi mdi-trash-can selectable" onclick="app.notesController.removeNote('${this.id}')"></i>
       </h5>
       <div class="card-body">
         <p class="card-text text-wrap" id="task">
+        ${this.Tasks}
         </p>
       </div>
       <form onsubmit="app.tasksController.addTask('${this.id}')">
